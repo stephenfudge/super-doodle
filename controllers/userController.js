@@ -31,7 +31,7 @@ module.exports = {
 
     // update a user
     updateUser(req,res){
-        User.findOneAndUpdate({ _id: req.params.userId }, { $set: req.body }, {new: true, runValidators: true }
+        User.findOneAndUpdate({ _id: req.params.userId }, { $set: req.body }, {new: true, runValidators: true })
             .then(dbUserData => {
                 if (!dbUserData){
                     res.status(404).json({ message: 'No user found with that ID' });
@@ -40,7 +40,6 @@ module.exports = {
                 res.json(dbUserData);
             })
             .catch(err => res.json(err))
-        )
     },
 
     // to delete a user
